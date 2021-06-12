@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Main;
 using NUnit.Framework;
 using UnityEngine;
+using Utilities.Contract;
 
 namespace MainTest
 {
@@ -31,7 +32,7 @@ namespace MainTest
 		[TestCase(0,-1,"number2 is negative number.")]
 		[TestCase(-1,-1,"number1 and number2 is negative number.")]
 		public void Should_Throw_Exception(int number1, int number2, string errorMessage) {
-			var exception = Assert.Throws<Exception>(() => { _starMath.Add(number1, number2); });
+			var exception = Assert.Throws<PreconditionViolationException>(() => { _starMath.Add(number1, number2); });
 			Assert.AreEqual(errorMessage, exception.Message);
 		}
 	}
