@@ -21,12 +21,6 @@ namespace Utilities.Contract
 			return Ensure(obj != null, $"{annotation} cannot be null");
 		}
 
-		public static bool HopeNotPost(bool value, string annotation = "") {
-			if (CHECK_POST == false) return true;
-			if (value == true) throw new PostConditionViolationException(annotation);
-			return true;
-		}
-
 		public static void Require(bool value, string annotation = "") {
 			if (CHECK_PRE == false) return;
 			if (value == false) throw new PreconditionViolationException(annotation);
@@ -39,12 +33,6 @@ namespace Utilities.Contract
 
 		public static void RequireString(string str, string annotation) {
 			Require(string.IsNullOrEmpty(str) == false, $"{annotation} can not be empty");
-		}
-
-		public static bool HopeNotPre(bool value, string annotation = "") {
-			if (CHECK_PRE == false) return true;
-			if (value == true) throw new PostConditionViolationException(annotation);
-			return true;
 		}
 	#endregion
 	}

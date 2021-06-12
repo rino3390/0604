@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Main
@@ -8,6 +9,10 @@ namespace Main
 		[SerializeField]
 		private Button buttonClosePanel;
 		public Text textErrorMessage;
+
+		private void Start() {
+			buttonClosePanel.onClick.AddListener(Close);
+		}
 
 		public void setText(string _text) {
 			textErrorMessage.text = _text;
